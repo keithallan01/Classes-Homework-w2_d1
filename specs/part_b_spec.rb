@@ -61,12 +61,15 @@ class TestSportsTeam < Minitest::Test
   #   assert_equal(0, sports_team.points)
   # end
   #
-  # def test_add_points
-  #   add_or_remove_points(@points[0])
-  #   points = total_points(@points)
-  #   assert_equal(1, points)
-  # end
-  #
-  # def test_remove_points
+  def test_add_points
+    sports_team = SportsTeam.new("AC Milan",["Suso", "Zapata", "Higuain"], "Gattuso")
+    result = sports_team.win(true)
+    assert_equal(1, result)
+  end
 
-end
+  def test_remove_points
+    sports_team = SportsTeam.new("AC Milan",["Suso", "Zapata", "Higuain"], "Gattuso")
+    result = sports_team.win(false)
+    assert_equal(0, result)
+    end
+  end

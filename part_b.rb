@@ -32,12 +32,9 @@ attr_accessor :coach
     return @team_players.include?(team_player)
   end
 
-#   def points_system(points)
-#     return @points.count
-#   end
-#
-#   def add_or_remove_points(sports_team, points)
-#     sports_team(points) += amount
-#   end
-#
-# end
+  def win(game)
+      if game == true
+        return @points.result += 1
+      end
+    end
+end
