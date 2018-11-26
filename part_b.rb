@@ -1,5 +1,5 @@
 class SportsTeam
-attr_writer :coach
+attr_reader :coach
 
   def initialize(team_name, team_players, coach)
     @team_name = team_name
