@@ -6,7 +6,8 @@ class TestSportsTeam < Minitest::Test
 
   @team_name = "AC Milan"
   @team_players = ["Suso", "Zapata", "Higuain"]
-  @Coach = "Gattuso"
+  @coach = "Gattuso"
+  @points = 0
 
   def test_team_name
     sports_team = SportsTeam.new("AC Milan",@team_players, "Gattuso")
@@ -23,9 +24,49 @@ class TestSportsTeam < Minitest::Test
     assert_equal("Gattuso", sports_team.coach)
   end
 
-  def test_set_coach
+  # def test_set_coach
+  #   sports_team = SportsTeam.new("AC Milan",["Suso", "Zapata", "Higuain"], "Gattuso")
+  #   sports_team.coach = "Gattuso"
+  #   assert_equal("Gattuso", sports_team.coach)
+  # end
+
+  def test_set_new_coach
     sports_team = SportsTeam.new("AC Milan",["Suso", "Zapata", "Higuain"], "Gattuso")
-    sports_team.coach ="Gattuso"
-    assert_equal("Gattuso", sports_team.coach)
+    result = sports_team.coach = "Alex McLeish"
+    assert_equal("Alex McLeish", result)
   end
+
+
+  def test_add_player_to_team
+    sports_team = SportsTeam.new("AC Milan",["Suso", "Zapata", "Higuain"], "Gattuso")
+    sports_team.add_player("Ronaldo")
+    result = sports_team.team_players.include?("Ronaldo")
+    assert_equal(result, true)
+  end
+  #
+  def test_find_player_by_name__true
+    sports_team = SportsTeam.new("AC Milan",["Suso", "Zapata", "Higuain"], "Gattuso")
+    result = sports_team.find_player("Suso")
+    assert_equal(result, true)
+  end
+
+  def test_find_player_by_name__false
+    sports_team = SportsTeam.new("AC Milan",["Suso", "Zapata", "Higuain"], "Gattuso")
+    result = sports_team.find_player("Henry")
+    assert_equal(result, false)
+  end
+
+  # def test_points_system
+  #   sports_team = SportsTeam.new("AC Milan",["Suso", "Zapata", "Higuain"], "Gattuso")
+  #   assert_equal(0, sports_team.points)
+  # end
+  #
+  # def test_add_points
+  #   add_or_remove_points(@points[0])
+  #   points = total_points(@points)
+  #   assert_equal(1, points)
+  # end
+  #
+  # def test_remove_points
+
 end

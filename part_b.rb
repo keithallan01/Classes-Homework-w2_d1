@@ -1,5 +1,5 @@
 class SportsTeam
-attr_reader :coach
+attr_accessor :coach
 
   def initialize(team_name, team_players, coach)
     @team_name = team_name
@@ -18,4 +18,26 @@ attr_reader :coach
   def coach
     return @coach
   end
-end
+
+  def set_new_coach(new_coach)
+    return @coach = new_coach
+  end
+
+
+  def add_player(new_player)
+    return @team_players << new_player
+  end
+
+  def find_player(team_player)
+    return @team_players.include?(team_player)
+  end
+
+#   def points_system(points)
+#     return @points.count
+#   end
+#
+#   def add_or_remove_points(sports_team, points)
+#     sports_team(points) += amount
+#   end
+#
+# end
