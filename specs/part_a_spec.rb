@@ -20,9 +20,18 @@ end
     assert_equal("Keith", student.name)
   end
 
-  def test_set_cohort
+  def test_can_set_cohort
     student = Student.new("Gabriele", "E27")
     student.set_cohort("E27")
     assert_equal("E27", student.cohort)
   end
+
+  def test_student_can_talk
+    student = Student.new("Keith", "E27")
+    student_said = student.talk()
+    assert_equal("I can talk", student_said)
+  end
+
+
+
 end
