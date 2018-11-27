@@ -1,3 +1,6 @@
+## This code needs to be refacto-ed
+
+
 require('minitest/autorun')
 require('minitest/rg')
 require_relative('../part_b')
@@ -61,15 +64,15 @@ class TestSportsTeam < Minitest::Test
   #   assert_equal(0, sports_team.points)
   # end
   #
-  def test_add_points
+  def test_add_points__win
     sports_team = SportsTeam.new("AC Milan",["Suso", "Zapata", "Higuain"], "Gattuso")
-    result = sports_team.win(true)
-    assert_equal(1, result)
+    sports_team.play_game(true)
+    assert_equal(1, sports_team.points)
   end
 
-  def test_remove_points
+  def test_remove_points__lose
     sports_team = SportsTeam.new("AC Milan",["Suso", "Zapata", "Higuain"], "Gattuso")
-    result = sports_team.win(false)
-    assert_equal(0, result)
+    sports_team.play_game(false)
+    assert_equal(0, sports_team.points)
     end
   end
